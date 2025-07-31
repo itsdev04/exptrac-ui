@@ -1,0 +1,9 @@
+<h2>{{ isEdit ? 'Edit' : 'Add' }} Category</h2>
+<form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="category.name" name="name" required>
+  </div>
+  <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Add' }}</button>
+  <a routerLink="/categories" class="btn btn-secondary">Cancel</a>
+</form>

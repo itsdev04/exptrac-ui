@@ -1,0 +1,184 @@
+openapi: 3.0.1
+info:
+  title: Expense Management API
+  version: 1.0.0
+  description: API for managing expenses and categories
+
+servers:
+  - url: http://localhost:8080/api
+
+paths:
+  
+  /expenses:
+    get:
+      summary: Get all expenses
+      tags:
+        - Expense
+      responses:
+        '200':
+          description: List of expenses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Expense'
+    post:
+      summary: Add a new expense
+      tags:
+        - Expense     
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Expense'
+      responses:
+        '201':
+          description: Expense created
+
+  /expenses/{id}:
+    get:
+      summary: Get expense by ID
+      tags:
+        - Expense    
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Expense details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '404':
+          description: Expense not found
+    put:
+      summary: Update an expense
+      tags:
+        - Expense    
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Expense'
+      responses:
+        '200':
+          description: Expense updated
+    delete:
+      summary: Delete an expense
+      tags:
+        - Expense     
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Expense deleted
+
+  /categories:
+    get:
+      summary: Get all categories
+      tags:
+        - Category     
+      responses:
+        '200':
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+    post:
+      summary: Add a new category
+      tags:
+        - Category      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          description: Category created
+
+  /categories/{id}:
+    put:
+      summary: Update a category
+      tags:
+        - Category      
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          description: Category updated
+    delete:
+      summary: Delete a category
+      tags:
+        - Category      
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Category deleted
+
+components:
+  schemas:
+    Expense:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        date:
+          type: string
+          format: date
+          example: 2025-07-30
+        amount:
+          type: number
+          format: double
+          example: 99.99
+        categoryId:
+          type: integer
+          example: 2
+        description:
+          type: string
+          example: "Lunch with client"
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 2
+        name:
+          type: string

@@ -1,0 +1,8 @@
+<h2>Expense Details</h2>
+<div *ngIf="expense">
+  <p><strong>Date:</strong> {{ expense.date }}</p>
+  <p><strong>Amount:</strong> {{ expense.amount }}</p>
+  <p><strong>Category:</strong> {{ getCategoryName(expense.categoryId) }}</p>
+  <p><strong>Description:</strong> {{ expense.description }}</p>
+  <a routerLink="/expenses" class="btn btn-secondary">Back</a>
+</div>

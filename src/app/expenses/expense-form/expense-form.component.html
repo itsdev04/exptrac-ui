@@ -1,0 +1,23 @@
+<h2>{{ isEdit ? 'Edit' : 'Add' }} Expense</h2>
+<form (ngSubmit)="onSubmit()" #expenseForm="ngForm">
+  <div class="form-group">
+    <label>Date</label>
+    <input type="date" class="form-control" [(ngModel)]="expense.date" name="date" required>
+  </div>
+  <div class="form-group">
+    <label>Amount</label>
+    <input type="number" class="form-control" [(ngModel)]="expense.amount" name="amount" required>
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+    <select class="form-control" [(ngModel)]="expense.categoryId" name="categoryId" required>
+      <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" [(ngModel)]="expense.description" name="description">
+  </div>
+  <button type="submit" class="btn btn-success">{{ isEdit ? 'Update' : 'Add' }}</button>
+  <a routerLink="/expenses" class="btn btn-secondary">Cancel</a>
+</form>
