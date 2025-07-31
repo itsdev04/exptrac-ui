@@ -1,9 +1,9 @@
-<h1>{{ title }}</h1>
-<!-- Add to app.component.html above <router-outlet> -->
-<nav>
-  <a routerLink="/">Dashboard</a> |
-  <a routerLink="/expenses">Expenses</a> |
-  <a routerLink="/categories">Categories</a> |
-  <a routerLink="/reports">Reports</a>
-</nav>
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/">Dashboard</a>
+  <a mat-button routerLink="/expenses">Expenses</a>
+  <a mat-button routerLink="/categories">Categories</a>
+  <a mat-button routerLink="/reports">Reports</a>
+</mat-toolbar>
 <router-outlet></router-outlet>

@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -37,14 +38,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-       MatToolbarModule,
+    MatToolbarModule,
     MatButtonModule,
     MatTableModule,
     MatInputModule,
     MatSelectModule,
     MatCardModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

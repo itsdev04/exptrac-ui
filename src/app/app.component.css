@@ -1,3 +1,40 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
 .spacer {
   flex: 1 1 auto;
+}
+
+/* Style the navigation links */
+mat-toolbar a[mat-button] {
+  color: #eeeaea;
+  font-weight: 500;
+  margin-left: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 4px;
+  padding: 6px 16px;
+}
+
+mat-toolbar a[mat-button]:hover {
+  background: rgba(255,255,255,0.15);
+  color: #ffc107;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  mat-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+  }
+  mat-toolbar a[mat-button] {
+    margin: 4px 0 0 0;
+    width: 100%;
+  }
 }
